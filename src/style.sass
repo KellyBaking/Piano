@@ -1,0 +1,163 @@
+$key_h: 300px
+$key_w: 44px
+$color_white: #eee
+$color_black: #585858
+
+@mixin size($w,$h)
+  width: $w
+  height: $h
+  
+@mixin center
+  position: absolute
+  left: 50%
+  top: 50%
+  transform: translate(-50%,-50%)
+  
+*
+  // vertical-align: top
+  
+body, html
+  +size(100%,100%)
+  margin: 0
+  padding: 0
+  // background-color: #a3d6d3
+  background: linear-gradient(45deg, #3f87a6, #ebf8e1 60%, #dbb4f0)
+
+  
+.center
+  // border: solid 1px
+  position: absolute
+  left: 50%
+  // top: 50%
+  transform: translateX(-50%)
+  bottom: 0
+  width: 700px
+  text-align: center
+  padding: 20px
+  
+.piano
+  display: inline-block
+  box-shadow: 0px 0px 40px -10px rgba($color_black,0.8)
+  
+  
+  
+.keyboard
+  display: inline-block
+  cursor: pointer
+  vertical-align: top
+
+
+.white
+  +size($key_w,$key_h)
+  border: solid 1px darken($color_white,0.8)
+  background-color: #fff
+  transform: translate(-4px,-4px)
+  transition: 0.2s
+  &:hover
+    transform: translate(0px,0px)
+    background-color: darken($color_white,0.8)
+  &.playing
+    transform: translate(0px,0px)
+    background-color: darken($color_white,0.8)
+
+.black
+  +size($key_w/2,$key_h*0.55)
+  // border: solid 1px
+  margin-left: -$key_w/4
+  margin-right: -$key_w/4
+  background-color: $color_black
+  position: relative
+  z-index: 5
+  transform: translate(-4px,-4px)
+  transition: 0.2s
+  &:hover
+    transform: translate(0px,0px)
+    background-color: rgba(black,0.8)
+  &.playing
+    transform: translate(0px,0px)
+    background-color: rgba(black,0.8)
+    
+.char
+  font-size: 12px
+  color: lighten($color_black,40)
+  position: absolute
+  bottom: 0px
+  left: 50%
+  transform: translateX(-50%)
+  
+
+.sheet
+  position: absolute
+  // border: solid 1px
+  // display: inline-block
+  // padding: 10px
+  top: -370px
+  right: -25%
+  width: 800px
+.sheet_right
+  position: absolute
+
+
+  
+.img
+  // border: solid 1px
+  +size(300px,300px)
+  position: absolute
+  // top: 50px
+  left: -300px
+
+label
+  display: inline-block
+  
+  margin-top: 10px
+  border-right: 2px solid darken($color_white,30)
+  padding: 1px 8px
+  
+  &.playing
+    background-color: #f0f08d
+
+  .name
+    font-size: 10px
+    color: $color_black
+  .time
+    font-size: 10px
+    color: darken($color_white,30)
+    
+
+.btn
+  position: absolute
+  top: -50px
+
+button
+  margin-top: 20px
+  margin-right: 15px
+  padding: 3px 10px
+  cursor: pointer
+  border: solid 1px lighten($color_black,30)
+  border-radius: 5px
+  background-color: transparent
+  transition: 0.2s
+  color: $color_black
+  &:hover
+    background-color: $color_black
+    color: $color_white
+  
+  i
+    margin-left: 5px
+    font-size: 10px
+    
+button.music
+  border-radius: 40%
+  padding: 8px 15px
+    
+.totoro
+  background-image: url(https://i03piccdn.sogoucdn.com/42834ce9dc564396)
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center
+  
+.guigui
+  background-image: url(https://comet.noonspace.com/w61NoonSpace/kuai/PrdInfo/1908190000079_b.png)
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center

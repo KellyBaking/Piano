@@ -1,0 +1,48 @@
+#crazy
+  .audioall(v-for="m in music")
+    audio(v-bind:data_name="m.name")
+      source(v-bind:src="m.url")     
+  .center
+    .piano
+      .keyboard(v-for="k in keyboard")
+        .white(v-if="k.type=='white'"
+               v-on:click="addaudio(k.num)"
+               v-bind:class="highlight(k.num,k.key)?'playing':''")
+               .char {{String.fromCharCode(k.key)}}
+        .black(v-if="k.type=='black'"
+               v-on:click="addaudio(k.num)"
+               v-bind:class="highlight(k.num,k.key)?'playing':''")
+               .char {{String.fromCharCode(k.key)}}
+    //- h4 {{ascii}}
+    
+
+    .sheet
+      .img
+      .sheet_right
+        label(v-for="(s,id) in star"
+              v-bind:class="hightlightlabel(id)?'playing':''")
+          .name {{s.num}}
+          .time {{s.time}}
+
+    .btn
+      button.music(v-on:click="guigui") Guaiguai
+      button.music(v-on:click="totoro") Totoro
+      button(v-on:click="record"
+             v-if="this.record_time==0") Record
+             i.fa-solid.fa-microphone
+      button(v-on:click="stoprecord"
+             v-if="this.record_time>0") Stop
+             i.fa-solid.fa-pause
+      button(v-on:click="playnext(1)"
+             v-if="this.star.length>0") PlayNextNote
+      button(v-on:click="playmusic"
+             v-if="this.play_time<=1 && this.star.length>0") Play
+             i.fa-solid.fa-play
+      button(v-on:click="stopmusic"
+             v-if="this.play_time>1") Stop
+             i.fa-solid.fa-pause
+      button(v-on:click="clear"
+             v-if="this.star.length>0") Clear
+             i.fa-solid.fa-trash-can
+    h4 {{play_time+record_time}}
+    

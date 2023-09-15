@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - piano project</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="crazy">
+  <div class="audioall" v-for="m in music">
+    <audio v-bind:data_name="m.name">
+      <source v-bind:src="m.url"/>
+    </audio>
+  </div>
+  <div class="center">
+    <div class="piano">
+      <div class="keyboard" v-for="k in keyboard">
+        <div class="white" v-if="k.type=='white'" v-on:click="addaudio(k.num)" v-bind:class="highlight(k.num,k.key)?'playing':''">
+          <div class="char">{{String.fromCharCode(k.key)}}</div>
+        </div>
+        <div class="black" v-if="k.type=='black'" v-on:click="addaudio(k.num)" v-bind:class="highlight(k.num,k.key)?'playing':''">
+          <div class="char">{{String.fromCharCode(k.key)}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="sheet">
+      <div class="img"></div>
+      <div class="sheet_right">
+        <label v-for="(s,id) in star" v-bind:class="hightlightlabel(id)?'playing':''">
+          <div class="name">{{s.num}}</div>
+          <div class="time">{{s.time}}</div>
+        </label>
+      </div>
+    </div>
+    <div class="btn">
+      <button class="music" v-on:click="guigui">Guaiguai</button>
+      <button class="music" v-on:click="totoro">Totoro</button>
+      <button v-on:click="record" v-if="this.record_time==0">Record<i class="fa-solid fa-microphone"></i></button>
+      <button v-on:click="stoprecord" v-if="this.record_time&gt;0">Stop<i class="fa-solid fa-pause"></i></button>
+      <button v-on:click="playnext(1)" v-if="this.star.length&gt;0">PlayNextNote</button>
+      <button v-on:click="playmusic" v-if="this.play_time&lt;=1 &amp;&amp; this.star.length&gt;0">Play<i class="fa-solid fa-play"></i></button>
+      <button v-on:click="stopmusic" v-if="this.play_time&gt;1">Stop<i class="fa-solid fa-pause"></i></button>
+      <button v-on:click="clear" v-if="this.star.length&gt;0">Clear<i class="fa-solid fa-trash-can"></i></button>
+    </div>
+    <h4>{{play_time+record_time}}</h4>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.prod.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0/axios.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

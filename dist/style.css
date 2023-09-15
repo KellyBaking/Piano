@@ -1,0 +1,154 @@
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(45deg, #3f87a6, #ebf8e1 60%, #dbb4f0);
+}
+
+.center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 700px;
+  text-align: center;
+  padding: 20px;
+}
+
+.piano {
+  display: inline-block;
+  box-shadow: 0px 0px 40px -10px rgba(88, 88, 88, 0.8);
+}
+
+.keyboard {
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: top;
+}
+
+.white {
+  width: 44px;
+  height: 300px;
+  border: solid 1px #ececec;
+  background-color: #fff;
+  transform: translate(-4px, -4px);
+  transition: 0.2s;
+}
+.white:hover {
+  transform: translate(0px, 0px);
+  background-color: #ececec;
+}
+.white.playing {
+  transform: translate(0px, 0px);
+  background-color: #ececec;
+}
+
+.black {
+  width: 22px;
+  height: 165px;
+  margin-left: -11px;
+  margin-right: -11px;
+  background-color: #585858;
+  position: relative;
+  z-index: 5;
+  transform: translate(-4px, -4px);
+  transition: 0.2s;
+}
+.black:hover {
+  transform: translate(0px, 0px);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.black.playing {
+  transform: translate(0px, 0px);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.char {
+  font-size: 12px;
+  color: #bebebe;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.sheet {
+  position: absolute;
+  top: -370px;
+  right: -25%;
+  width: 800px;
+}
+
+.sheet_right {
+  position: absolute;
+}
+
+.img {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: -300px;
+}
+
+label {
+  display: inline-block;
+  margin-top: 10px;
+  border-right: 2px solid #a2a2a2;
+  padding: 1px 8px;
+}
+label.playing {
+  background-color: #f0f08d;
+}
+label .name {
+  font-size: 10px;
+  color: #585858;
+}
+label .time {
+  font-size: 10px;
+  color: #a2a2a2;
+}
+
+.btn {
+  position: absolute;
+  top: -50px;
+}
+
+button {
+  margin-top: 20px;
+  margin-right: 15px;
+  padding: 3px 10px;
+  cursor: pointer;
+  border: solid 1px #a5a5a5;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: 0.2s;
+  color: #585858;
+}
+button:hover {
+  background-color: #585858;
+  color: #eee;
+}
+button i {
+  margin-left: 5px;
+  font-size: 10px;
+}
+
+button.music {
+  border-radius: 40%;
+  padding: 8px 15px;
+}
+
+.totoro {
+  background-image: url(https://i03piccdn.sogoucdn.com/42834ce9dc564396);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.guigui {
+  background-image: url(https://comet.noonspace.com/w61NoonSpace/kuai/PrdInfo/1908190000079_b.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
